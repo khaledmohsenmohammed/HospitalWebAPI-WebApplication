@@ -12,7 +12,7 @@ Author: ThemeBucket
 
 body {
     background: #424f63;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Cairo', sans-serif;
     color: #7a7676;
     line-height: 20px;
     overflow-x: hidden;
@@ -20,7 +20,7 @@ body {
 }
 
 input, select, textarea {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Cairo', sans-serif;
     color: #767676;
 }
 
@@ -37,7 +37,7 @@ a:focus, a:active, a:hover {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Cairo', sans-serif;
 }
 
 .mtop10 {
@@ -95,7 +95,7 @@ hr {
     font-weight: normal;
     color: #fff;
     font-weight: normal;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Cairo', sans-serif;
     position: absolute;
     bottom: -50px;
     width: 100%;
@@ -135,7 +135,7 @@ hr {
     color: #fff;
     text-transform: uppercase;
     font-weight: normal;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Cairo', sans-serif;
     margin: 20px 0 5px;
     padding: 5px;
     -webkit-transition: all 0.3s;
@@ -185,7 +185,7 @@ hr {
     width: 240px;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
 }
 
 .sticky-left-side {
@@ -197,6 +197,7 @@ hr {
 
 .sticky-left-side .custom-nav {
     margin-top: 50px;
+    direction:rtl;
 }
 
 .left-side-collapsed .sticky-left-side {
@@ -306,7 +307,7 @@ hr {
 }
 
 .custom-nav > li.menu-list > a {
-    background: transparent url(../images/plus-white.png) no-repeat 93% center;
+    background: transparent url(../images/plus-white.png) no-repeat 7% center;
 }
 
 .custom-nav > li.menu-list > a:hover {
@@ -350,7 +351,7 @@ hr {
 .custom-nav li .fa {
     font-size: 16px;
     vertical-align: middle;
-    margin-right: 10px;
+    margin-left: 10px;
     width: 16px;
     text-align: center;
 }
@@ -367,7 +368,7 @@ hr {
     color: #fff;
     font-size: 13px;
     display: block;
-    padding: 10px 5px 10px 50px;
+    padding: 10px 50px 10px 5px;
     -moz-transition: all 0.2s ease-out 0s;
     -webkit-transition: all 0.2s ease-out 0s;
     transition: all 0.2s ease-out 0s;
@@ -527,11 +528,11 @@ h5.left-nav-title {
 }
 
 .left-side-collapsed .custom-nav li a i {
-    margin-right: 0;
+    margin-left: 0;
 }
 
 .left-side-collapsed .main-content {
-    margin-left: 52px;
+    margin-right: 52px;
 }
 
 
@@ -560,7 +561,7 @@ h5.left-nav-title {
     font-size: 20px;
     padding: 15px;
     cursor: pointer;
-    float: left;
+    float: right;
     color: #212121;
     border-right: 1px solid #e7e7e7;
     -moz-transition: all 0.2s ease-out 0s;
@@ -576,7 +577,7 @@ h5.left-nav-title {
 
 .searchform input {
     box-shadow: none;
-    float: left;
+    float: right;
     font-size: 14px;
     height: 35px;
     margin: 7px 0 0 10px;
@@ -592,8 +593,8 @@ h5.left-nav-title {
 }
 
 .menu-right {
-    float: right;
-    margin-right: 15px;
+    float: left;
+    margin-left: 15px;
 }
 
 .notification-menu {
@@ -602,7 +603,7 @@ h5.left-nav-title {
 
 .notification-menu > li {
     display: inline-block;
-    float: left;
+    float: right;
     position: relative;
 }
 
@@ -634,7 +635,7 @@ h5.left-nav-title {
 
 .notification-menu .dropdown-toggle img {
     vertical-align: middle;
-    margin-right: 5px;
+    margin-left: 5px;
     width: 26px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -663,7 +664,7 @@ h5.left-nav-title {
     border-right: 6px solid transparent;
     content: "";
     display: inline-block;
-    right: 10px;
+    left: 10px;
     position: absolute;
     top: -6px;
 }
@@ -699,7 +700,7 @@ h5.left-nav-title {
 
 .notification-menu .dropdown-menu li i {
     font-size: 11px;
-    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .notification-menu .dropdown-menu-head {
@@ -843,7 +844,7 @@ h5.left-nav-title {
 .sticky-header .logo {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 240px;
     z-index: 100;
     background: #424f63;
@@ -857,7 +858,7 @@ h5.left-nav-title {
 .sticky-header .header-section {
     position: fixed;
     top: 0;
-    left: 240px;
+    right: 240px;
     width: 100%;
     z-index: 100;
 }
@@ -867,15 +868,15 @@ h5.left-nav-title {
 }
 
 .sticky-header .menu-right {
-    margin-right: 255px;
+    margin-left: 255px;
 }
 
 .sticky-header.left-side-collapsed .header-section {
-    left: 52px;
+    right: 52px;
 }
 
 .sticky-header.left-side-collapsed .menu-right {
-    margin-right: 67px;
+    margin-left: 67px;
 }
 
 /* -----------------------
@@ -900,7 +901,7 @@ h5.left-nav-title {
 ------------------------------*/
 
 .main-content {
-    margin-left: 240px;
+    margin-right: 240px;
     background: #eff0f4;
     min-height: 1000px;
 }
