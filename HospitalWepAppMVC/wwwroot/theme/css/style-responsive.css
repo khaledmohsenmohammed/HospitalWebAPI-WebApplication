@@ -53,11 +53,11 @@
     }
 
     .sticky-header .header-section, .sticky-header.left-side-collapsed .header-section {
-        left: 0;
+        right: 0;
     }
 
     .sticky-header.left-side-show .header-section {
-        left: 240px;
+        right: 240px;
     }
 
     .sticky-header .menu-right {
