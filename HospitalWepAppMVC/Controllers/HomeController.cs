@@ -1,6 +1,7 @@
 ﻿using HospitalWepAppMVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,14 @@ namespace HospitalWepAppMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _Configure;
+        private string apiBaseUrl;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _Configure = configuration;
+             apiBaseUrl = _Configure.GetValue<string>("WebAPIBaseUrl");
         }
 
         public IActionResult Index()
