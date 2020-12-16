@@ -11,17 +11,15 @@ namespace HospitalWebAPI.Models.Entities
         [Key]
         public Guid Id { get; set; }
         [Required]
-        [MaxLength(150)]
-        public string FirstName { get; set; }
+        public string FullName { get; set; }
         [Required]
-        [MaxLength(150)]
-        public string LastName { get; set; }
+        public int AgeOfPatient { get; set; }
         [Required]
         public long NationalId { get; set; }
         [Required]
         public string Address { get; set; }
         [Required]
-        public string Job { get; set; }
+        public string JobOfPatient { get; set; }
         [Required]
         public int TicketNumber { get; set; }
         [Required]
@@ -29,11 +27,10 @@ namespace HospitalWebAPI.Models.Entities
         [Required]
         public string MedicalReport { get; set; }
         [Required]
-        public string DateOfEntering { get; set; }
+        public DateTime DateTimeOfEntering { get; set; }
         [Required]
-        public string TimeOfEntering { get; set; }
+        public DateTime DateTimeOfCheckout { get; set; } 
         [Required]
         public Guid HospitalId { get; set; }
-        public Hospital Category { get; set; }
     }
 }

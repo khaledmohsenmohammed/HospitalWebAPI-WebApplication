@@ -34,14 +34,15 @@ namespace HospitalWepAppMVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = $"/Login";
-                options.LogoutPath = $"/account/logout";
-                options.AccessDeniedPath = $"/account/accessDenied";
+                options.LoginPath = $"/auth/login/";
+                //options.LogoutPath = $"/account/logout";
+                //options.AccessDeniedPath = $"/account/accessDenied";
             });
 
-          
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

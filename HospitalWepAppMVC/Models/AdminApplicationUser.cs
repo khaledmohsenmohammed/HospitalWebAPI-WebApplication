@@ -20,6 +20,5 @@ namespace HospitalWepAppMVC.Models
         [Required]
         public string Password { get; set; }
         public Boolean typeOfJop { get; set; }
-        public string ReturnUrl { get; set; }
     }
 }
