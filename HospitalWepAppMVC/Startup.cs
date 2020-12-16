@@ -36,7 +36,7 @@ namespace HospitalWepAppMVC
             services.AddRazorPages();
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = $"/Auth/Login";
+                options.LoginPath = $"/Login";
                 options.LogoutPath = $"/account/logout";
                 options.AccessDeniedPath = $"/account/accessDenied";
             });
