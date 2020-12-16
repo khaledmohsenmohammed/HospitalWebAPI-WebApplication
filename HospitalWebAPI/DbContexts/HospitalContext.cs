@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HospitalWebAPI.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HospitalWebAPI.DbContexts
         public HospitalContext(DbContextOptions<HospitalContext> options) : base(options)
         {}
         public DbSet<AdminApplicationUser> Courses { get; set; }
-        public DbSet<Categories> Categories { get; set; }
+        public DbSet<ApplicationUser> Categories { get; set; }
 
     }
 }
