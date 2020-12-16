@@ -11,8 +11,11 @@ namespace HospitalWebAPI.DbContexts
     {
         public HospitalContext(DbContextOptions<HospitalContext> options) : base(options)
         {}
-        public DbSet<AdminApplicationUser> Courses { get; set; }
-        public DbSet<ApplicationUser> Categories { get; set; }
+
+        public DbSet<AdminApplicationUser> AdminApplicationUser { get; set; }
+      
+        public DbSet<Hospital> Hospital { get; set; }
+        public DbSet<Patient> Patient { get; set; }
 
     }
 }

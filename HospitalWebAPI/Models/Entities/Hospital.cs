@@ -11,7 +11,7 @@ namespace HospitalWebAPI.Models.Entities
         [Key]
         public Guid Id { get; set; }
         [Required]
-        public string FirstName { get; set; }
+        public string HospitalName { get; set; }
         public IList<Patient> BookCategories { get; set; }
     }
 }

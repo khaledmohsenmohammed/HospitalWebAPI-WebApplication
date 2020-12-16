@@ -23,8 +23,6 @@ namespace HospitalWebAPI.Models.Entities
         [Required]
         public string Job { get; set; }
         [Required]
-        public string Email { get; set; }
-        [Required]
         public int TicketNumber { get; set; }
         [Required]
         public Boolean RespiratorDeviceStateb { get; set; }

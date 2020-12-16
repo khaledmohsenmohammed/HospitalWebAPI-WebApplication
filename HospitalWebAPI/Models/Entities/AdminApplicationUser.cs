@@ -12,13 +12,13 @@ namespace HospitalWebAPI.Models.Entities
         public Guid Id { get; set; }
         [Required]
         [MaxLength(150)]
-        public string FirstName { get; set; }
-        [Required]
+        public string FullName { get; set; }
         [MaxLength(150)]
-        public string LastName { get; set; }
+        public string UserName { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+        public Boolean typeOfJop { get; set; }  //trueHospital //falseModerea
     }
 }
