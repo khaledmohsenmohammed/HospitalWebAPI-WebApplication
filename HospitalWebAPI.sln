@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalWebAPI", "HospitalWebAPI\HospitalWebAPI.csproj", "{4E34BB7E-2A29-49C5-8D80-B67A4A59E12F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalWebAPI", "HospitalWebAPI\HospitalWebAPI.csproj", "{4E34BB7E-2A29-49C5-8D80-B67A4A59E12F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalWepAppMVC", "HospitalWepAppMVC\HospitalWepAppMVC.csproj", "{068F18D2-A97D-4DDB-8CE1-41FAF09E7639}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid19", "Covid19\Covid19.csproj", "{ADA15430-1857-4130-A2E3-FFF0BB0228EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4E34BB7E-2A29-49C5-8D80-B67A4A59E12F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E34BB7E-2A29-49C5-8D80-B67A4A59E12F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E34BB7E-2A29-49C5-8D80-B67A4A59E12F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{068F18D2-A97D-4DDB-8CE1-41FAF09E7639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{068F18D2-A97D-4DDB-8CE1-41FAF09E7639}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{068F18D2-A97D-4DDB-8CE1-41FAF09E7639}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{068F18D2-A97D-4DDB-8CE1-41FAF09E7639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA15430-1857-4130-A2E3-FFF0BB0228EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA15430-1857-4130-A2E3-FFF0BB0228EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA15430-1857-4130-A2E3-FFF0BB0228EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA15430-1857-4130-A2E3-FFF0BB0228EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

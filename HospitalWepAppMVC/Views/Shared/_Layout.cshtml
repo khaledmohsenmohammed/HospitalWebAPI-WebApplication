@@ -52,7 +52,16 @@
                     <ul class="nav nav-pills nav-stacked custom-nav">
                         <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
                         <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
-                        <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="Account" asp-action="Logout" href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Account" asp-action="Login" href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a>
+                            }
+                        </li>
                     </ul>
                 </div>
 
