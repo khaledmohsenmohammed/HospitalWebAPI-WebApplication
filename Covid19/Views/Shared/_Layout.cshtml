@@ -306,9 +306,9 @@
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     @*<a asp-controller="Account" aspcontroller="Logout" ><i class="fa fa-sign-out"></i> <span>Sign Out</span></a>*@
-                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                                        <button type="submit" class="nav-link btn btn-link">Logout</button>
-                                    </form>
+                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <i class="fa fa-sign-out"></i> <button id="logout" type="submit" class="btntransparnt">تسجيل الخروج</button>
+                            </form>
                                 }
                                 else
                                 {

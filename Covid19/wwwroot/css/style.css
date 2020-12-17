@@ -23,7 +23,15 @@ input, select, textarea {
     font-family: 'Cairo', sans-serif;
     color: #767676;
 }
-
+.btntransparnt {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+}
 a {
     color: #65CEA7;
 }
