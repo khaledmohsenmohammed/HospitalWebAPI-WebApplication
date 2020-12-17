@@ -13,9 +13,10 @@ namespace HospitalWebAPI.DbContexts
         {}
 
         public DbSet<AdminApplicationUser> AdminApplicationUser { get; set; }
-      
         public DbSet<Hospital> Hospital { get; set; }
         public DbSet<Patient> Patient { get; set; }
+        public DbSet<ICU> iCU { get; set; }
+
 
     }
 }

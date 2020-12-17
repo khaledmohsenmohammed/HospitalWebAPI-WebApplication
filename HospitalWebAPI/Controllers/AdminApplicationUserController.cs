@@ -20,14 +20,14 @@ namespace HospitalWebAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetUser()
+        public IActionResult GetAllUser()
         {
             var user = hospitalContext.AdminApplicationUser.ToList();
             return Ok(user);
         }
 
         [HttpGet("{userId}")]
-        public IActionResult GetUserId (int userId)
+        public IActionResult GetUserById (int userId)
         {
             var user = hospitalContext.AdminApplicationUser.Find(userId);
             return Ok(user);
@@ -54,7 +54,7 @@ namespace HospitalWebAPI.Controllers
             return Ok(user);
         }
 
-        [HttpPut("{courseId}")]
+        [HttpPut("{userId}")]
         public IActionResult UpdateUser(AdminApplicationUser userdata)
         {
             var user = hospitalContext.AdminApplicationUser.Find(userdata.Id);
@@ -62,10 +62,8 @@ namespace HospitalWebAPI.Controllers
             {
                 return NotFound("this user not found");
             }
-
             user.UserName = userdata.UserName;
             user.Password = userdata.Password;
-
             hospitalContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             hospitalContext.SaveChanges();
             return Ok(user);
