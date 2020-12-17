@@ -27,14 +27,14 @@ namespace HospitalWebAPI.Controllers
         }
 
         [HttpGet("{userId}")]
-        public IActionResult GetCorse(int userId)
+        public IActionResult GetUserId (int userId)
         {
             var user = hospitalContext.AdminApplicationUser.Find(userId);
             return Ok(user);
         }
 
         [HttpPost]
-        public IActionResult CreateUser(AdminApplicationUser usereData)
+        public IActionResult CreateUser (AdminApplicationUser usereData)
         {
             hospitalContext.AdminApplicationUser.Add(usereData);
             hospitalContext.SaveChanges();
