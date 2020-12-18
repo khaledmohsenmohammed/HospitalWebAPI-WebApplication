@@ -17,6 +17,10 @@
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="~/js/morris-chart/morris.css">
 
+    <link href="~/js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+    <link href="~/js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/js/data-tables/DT_bootstrap.css" />
+
     <link rel="~/shortcut icon" href="#" type="image/png">
     <link href="~/css/style.css" rel="stylesheet">
     <link href="~/css/style-responsive.css" rel="stylesheet">
@@ -56,11 +60,11 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 @*<a asp-controller="Account" aspcontroller="Logout" ><i class="fa fa-sign-out"></i> <span>Sign Out</span></a>*@
-                            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out2</a>
+                                <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out2</a>
                             }
                             else
                             {
-                                <a asp-controller="Account" asp-action="Login" href="#"><i class="fa fa-sign-out"></i> <span>Sign Out1</span></a>
+                                <a asp-controller="Account" asp-action="Login" ><i class="fa fa-sign-out"></i> <span>Sign Out1</span></a>
                             }
                         </li>
                     </ul>
@@ -86,10 +90,10 @@
                         </ul>
                     </li>
                     <li class="menu-list">
-                        <a href=""><i class="fa fa-cogs"></i> <span>الاعدادات</span></a>
+                        <a href=""><i class="fa fa-cogs"></i> <span>اعدادات المستشفيات</span></a>
                         <ul class="sub-menu-list">
-                            <li><a href="general.html">اعدادات الاسرة</a></li>
-                            <li><a href="buttons.html">اعدادات المستشفيات</a></li>
+                            <li><a asp-controller="Hospitals" asp-action="Create">اضافة جديد</a></li>
+                            <li><a asp-controller="Hospitals" asp-action="Index">المستشفيات</a></li>
 
                         </ul>
                     </li>
@@ -306,13 +310,13 @@
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     @*<a asp-controller="Account" aspcontroller="Logout" ><i class="fa fa-sign-out"></i> <span>Sign Out</span></a>*@
-                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <i class="fa fa-sign-out"></i> <button id="logout" type="submit" class="btntransparnt">تسجيل الخروج</button>
-                            </form>
+                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <i class="fa fa-sign-out"></i> <button id="logout" type="submit" class="btntransparnt">تسجيل الخروج</button>
+                                    </form>
                                 }
                                 else
                                 {
-                                    <a asp-controller="Account" asp-action="Login" href="#"><i class="fa fa-sign-out"></i> <span>Sign Out1</span></a>
+                                    <a asp-controller="Account" asp-action="Login" ><i class="fa fa-sign-out"></i> <span>Sign Out1</span></a>
                                 }
                             </ul>
                         </li>
@@ -328,7 +332,7 @@
     </section>
 
     <!-- Placed js at the end of the document so the pages load faster -->
-    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <script src="~/js/jquery-1.10.2.min.js" charset="UTF-8"></script>
     <script src="~/js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="~/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
@@ -362,8 +366,14 @@
     <script src="~/js/calendar/evnt.calendar.init.js"></script>
     <script src="~/js/calendar/moment-2.2.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+    <!--dynamic table-->
+    <script type="text/javascript"  charset="utf-8" language="javascript" src="~/js/advanced-datatable/js/jquery.dataTables.js"></script>
+    <script type="text/javascript"  charset="utf-8" src="~/js/data-tables/DT_bootstrap.js"></script>
+    <!--dynamic table initialization -->
+    <script src="~/js/dynamic_table_init.js"  charset="utf-8"></script>
     <!--common scripts for all pages-->
-    <script src="~/js/scripts.js"></script>
+    <script src="~/js/scripts.js" ></script>
     @RenderSection("Scripts", required: false)
 
 </body>

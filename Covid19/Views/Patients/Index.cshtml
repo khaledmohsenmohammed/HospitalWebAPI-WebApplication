@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Covid19.Models.Patient>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Identity/Pages/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.hospital)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NationalId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnterDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Report)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExitDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospital.HName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnterDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Report)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExitDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

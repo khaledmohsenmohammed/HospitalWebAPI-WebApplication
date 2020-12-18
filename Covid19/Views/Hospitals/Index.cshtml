@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Covid19.Models.Hospital>
+
+@{
+    ViewData["Title"] = "المستشفيات";
+}
+<div class="page-heading">
+    <h3>
+       المستشفيات
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a asp-controller="Hospitals" asp-action="Index">المستشفيات</a>
+        </li>
+       
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    المستشفيات
+                    <span class="tools pull-right">
+                        <a href="javascript:;" class="fa fa-chevron-down"></a>
+                       
+                    </span>
+                </header>
+                <div class="panel-body">
+                    <div class="adv-table">
+
+                        <table class="display table table-bordered table-striped" id="dynamic-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.HName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ICUBeds)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ICUVents)
+                                    </th>
+                                    <th>التحكم</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ICUBeds)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ICUVents)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success  btn-sm">تعديل</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info  btn-sm">عرض</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger  btn-sm">حذف</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+

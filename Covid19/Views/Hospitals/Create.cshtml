@@ -1,0 +1,66 @@
+﻿@model Covid19.Models.Hospital
+
+@{
+    ViewData["Title"] = "اضافة";
+}
+<div class="page-heading">
+    <h3>
+        اضافة مستشفى
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a asp-controller="Hospitals" asp-action="Index">المستشفيات</a>
+        </li>
+        <li class="active">اضافة</li>
+    </ul>
+</div>
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    اضافة جديد
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal adminex-form" asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="HName" class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="HName" class="form-control" />
+                                <span asp-validation-for="HName" class="text-danger"></span>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <label asp-for="ICUBeds" class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="ICUBeds" class="form-control" />
+                                <span asp-validation-for="ICUBeds" class="text-danger"></span>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <label asp-for="ICUVents" class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="ICUVents" class="form-control" />
+                                <span asp-validation-for="ICUVents" class="text-danger"></span>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <input type="submit" value="اضافة" class="btn btn-primary" />
+                            </div>
+                        </div>
+</form>
+
+                    @section Scripts {
+                        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                    }
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    </section>
+
+

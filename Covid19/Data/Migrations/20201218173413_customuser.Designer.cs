@@ -4,14 +4,16 @@ using Covid19.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Covid19.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201218173413_customuser")]
+    partial class customuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,21 +91,6 @@ namespace Covid19.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Covid19.Models.ExitStatus", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("StatusName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ExitStatus");
-                });
-
             modelBuilder.Entity("Covid19.Models.Hospital", b =>
                 {
                     b.Property<int?>("Id")
@@ -125,64 +112,6 @@ namespace Covid19.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Hospital","dbo");
-                });
-
-            modelBuilder.Entity("Covid19.Models.Patient", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(350)")
-                        .HasMaxLength(350);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EnterDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ExitDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("HospitalId")
-                        .HasColumnType("int")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("Job")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.Property<int>("NationalId")
-                        .HasColumnType("int")
-                        .HasMaxLength(14);
-
-                    b.Property<string>("PName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(250)")
-                        .HasMaxLength(250);
-
-                    b.Property<string>("Report")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StatusID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("exitStatusId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HospitalId");
-
-                    b.HasIndex("exitStatusId");
-
-                    b.ToTable("Patient","dbo");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -327,19 +256,6 @@ namespace Covid19.Data.Migrations
                         .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Covid19.Models.Patient", b =>
-                {
-                    b.HasOne("Covid19.Models.Hospital", "hospital")
-                        .WithMany()
-                        .HasForeignKey("HospitalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Covid19.Models.ExitStatus", "exitStatus")
-                        .WithMany()
-                        .HasForeignKey("exitStatusId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
