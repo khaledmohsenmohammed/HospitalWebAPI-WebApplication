@@ -25,6 +25,7 @@ namespace Covid19.Models
 
         [DisplayName("عدد أجهزة التنفس")]
         public int ICUVents { get; set; }
-
+        [DisplayName("أدمن")]
+        public bool IsAdmin { get; set; }
     }
 }

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Covid19.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "المستخدمين";
+}
+<div class="page-heading">
+    <h3>
+        المستخدمين
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a>المستخدمين</a>
+        </li>
+
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    المستخدمين
+                    <span class="tools pull-right">
+                        <a href="javascript:;" class="fa fa-chevron-down"></a>
+
+                    </span>
+                </header>
+                <div class="panel-body">
+                    <div class="adv-table">
+
+                        <table class="display table table-bordered table-striped" id="dynamic-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.HospitalId)
+                                    </th>
+                                    
+                                    <th>التحكم</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HospitalId)
+                                        </td>
+                                        
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success  btn-sm">تعديل</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info  btn-sm">عرض</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger  btn-sm">حذف</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+

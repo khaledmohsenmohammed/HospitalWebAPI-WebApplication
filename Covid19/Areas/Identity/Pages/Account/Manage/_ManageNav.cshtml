@@ -1,5 +1,4 @@
-﻿@using Covid19.Models
-@inject SignInManager<ApplicationUser> SignInManager
+﻿@inject SignInManager<Covid19.Models.ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

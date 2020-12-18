@@ -50,12 +50,12 @@ namespace Covid19.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required(ErrorMessage ="الايميل مطلوب")]
-            [EmailAddress]
+            [EmailAddress(ErrorMessage ="من فضلك ادخل ايميل صحيح")]
             [Display(Name = "الايميل")]
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "كلمة المرور لا تقل عن 6 ", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "كلمة المرور")]
             public string Password { get; set; }
@@ -84,7 +84,7 @@ namespace Covid19.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email,HospitalId=Input.HospitalId };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
