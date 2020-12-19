@@ -11,7 +11,7 @@
     }
 
     .main-content {
-        margin-left: 0;
+        margin-right: 0;
         width: 100%;
     }
 
@@ -20,7 +20,7 @@
     }
 
     .left-side-collapsed .main-content {
-        margin-left: 0;
+        margin-right: 0;
     }
 
     .left-side-collapsed .header-section {
@@ -36,7 +36,7 @@
     }
 
     .left-side-show .main-content {
-        margin-left: 240px;
+        margin-right: 240px;
     }
 
     .btn-demo {
@@ -61,7 +61,7 @@
     }
 
     .sticky-header .menu-right {
-        margin-right: 15px;
+        margin-left: 15px;
     }
 
     .sticky-header .left-side {

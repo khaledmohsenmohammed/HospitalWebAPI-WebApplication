@@ -34,20 +34,20 @@ namespace Covid19.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage ="كلمة المرور الحالية مطلوبة")]
             [DataType(DataType.Password)]
-            [Display(Name = "Current password")]
+            [Display(Name = "كلمة المرور الحالية")]
             public string OldPassword { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage ="كلمة المرور الجديدة مطلوبة")]
+            [StringLength(100, ErrorMessage = "كلمة المرور لا تقل عن 6", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "New password")]
+            [Display(Name = "كلمة المرور الجديدة")]
             public string NewPassword { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm new password")]
-            [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+            [Display(Name = "تاكيد كلمة المرور")]
+            [Compare("NewPassword", ErrorMessage = "كلمة المرور غير متطابقة")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -56,7 +56,7 @@ namespace Covid19.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"غير قادر على تحميل بيانات المستخدم '{_userManager.GetUserId(User)}'.");
             }
 
             var hasPassword = await _userManager.HasPasswordAsync(user);
@@ -78,7 +78,7 @@ namespace Covid19.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"غير قادر على تحميل بيانات المستخدم '{_userManager.GetUserId(User)}'.");
             }
 
             var changePasswordResult = await _userManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
@@ -92,8 +92,8 @@ namespace Covid19.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            _logger.LogInformation("User changed their password successfully.");
-            StatusMessage = "Your password has been changed.";
+            _logger.LogInformation("تم تغيير كلمة المرور بنجاح");
+            StatusMessage = "تم تغيير كلمة المرور";
 
             return RedirectToPage();
         }
