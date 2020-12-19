@@ -43,11 +43,10 @@ namespace Covid19.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required (ErrorMessage = "الرجاء ادخال البريد الالكترونى "), EmailAddress(ErrorMessage = "البريد الإلكتروني غير صالح")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "الرجاء ادخال كلمة المرور "), EmailAddress(ErrorMessage = "كلمة المرور خطاء")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
