@@ -29,28 +29,39 @@
                             <div class="col-sm-10">
                                 <input asp-for="HName" class="form-control" />
                                 <span asp-validation-for="HName" class="text-danger"></span>
-                                </div>
                             </div>
+                        </div>
+                        @*is admin row*@
+                        <div class="form-group">
+                            <label asp-for="IsAdmin" class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                @Html.CheckBoxFor(m => m.IsAdmin)
+                                <input name="isActive" type="hidden" value="false" />
+                            </div>
+                        </div>
+                        @* ------ End admin row*@
+                        @
                         <div class="form-group">
                             <label asp-for="ICUBeds" class="col-sm-2 col-sm-2 control-label"></label>
                             <div class="col-sm-10">
                                 <input asp-for="ICUBeds" class="form-control" />
                                 <span asp-validation-for="ICUBeds" class="text-danger"></span>
-                                </div>
                             </div>
+                        </div>
                         <div class="form-group">
                             <label asp-for="ICUVents" class="col-sm-2 col-sm-2 control-label"></label>
                             <div class="col-sm-10">
                                 <input asp-for="ICUVents" class="form-control" />
                                 <span asp-validation-for="ICUVents" class="text-danger"></span>
-                                </div>
                             </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <input type="submit" value="اضافة" class="btn btn-primary" />
                             </div>
                         </div>
-</form>
+                    </form>
 
                     @section Scripts {
                         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
