@@ -32,12 +32,35 @@ namespace Covid19
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<ApplicationUser>(options =>
-            {
-                options.Password.RequireUppercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-            }
-            )                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+           // services.AddDefaultIdentity<ApplicationUser>(options =>
+           // {
+           //     options.Password.RequireUppercase = false;
+           //     options.Password.RequireNonAlphanumeric = false;
+           // }
+           //).AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            services.AddIdentity<ApplicationUser, IdentityRole>(
+                options =>
+                {
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                }
+                )
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultUI();
+            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+            //services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            //{
+            //    options.Password.RequireUppercase = false;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //})
+            //   .AddEntityFrameworkStores<ApplicationDbContext>()
+            //   .AddDefaultTokenProviders();
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

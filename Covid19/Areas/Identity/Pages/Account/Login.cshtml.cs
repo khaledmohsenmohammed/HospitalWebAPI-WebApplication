@@ -46,7 +46,7 @@ namespace Covid19.Areas.Identity.Pages.Account
             [Required (ErrorMessage = "الرجاء ادخال البريد الالكترونى "), EmailAddress(ErrorMessage = "البريد الإلكتروني غير صالح")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "الرجاء ادخال كلمة المرور "), EmailAddress(ErrorMessage = "كلمة المرور خطاء")]
+            [Required(ErrorMessage = "الرجاء ادخال كلمة المرور ")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
@@ -82,7 +82,7 @@ namespace Covid19.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("تسجيل الدخول.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -91,7 +91,7 @@ namespace Covid19.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("تم حجب المستخدم.");
                     return RedirectToPage("./Lockout");
                 }
                 else
