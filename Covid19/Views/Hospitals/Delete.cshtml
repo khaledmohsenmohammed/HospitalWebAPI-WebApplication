@@ -3,6 +3,60 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div class="page-heading">
+<h3>
+    حذف مستشفى
+</h3>
+<ul class="breadcrumb">
+    <li>
+        <a asp-controller="Hospitals" asp-action="Index">المستشفيات</a>
+    </li>
+    <li class="active">حذف</li>
+</ul>
+</div>
+
+
+
+
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <form class="panel-heading">
+
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.HName)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.HName)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.ICUBeds)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.ICUBeds)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.ICUVents)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.ICUVents)
+                        </dd>
+                    </dl>
+                </form>
+            </section>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
 
 <h1>Delete</h1>
 
@@ -11,26 +65,26 @@
     <h4>Hospital</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.HName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.HName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ICUBeds)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ICUBeds)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ICUVents)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ICUVents)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
