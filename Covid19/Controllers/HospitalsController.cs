@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Covid19.Controllers
 {
-    [Authorize(Roles = "administrator")]
+    //[Authorize(Roles = "administrator")]
     public class HospitalsController : Controller
     {
         private readonly ApplicationDbContext _context;

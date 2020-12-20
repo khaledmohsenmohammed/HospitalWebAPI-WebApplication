@@ -1,5 +1,5 @@
 ﻿@model Covid19.Models.Hospital
-
+  
 @{
     ViewData["Title"] = "اضافة";
 }
@@ -35,35 +35,51 @@
                         <div class="form-group">
                             <label asp-for="IsAdmin" class="col-sm-2 col-sm-2 control-label"></label>
                             <div class="col-sm-10">
-                                @Html.CheckBoxFor(m => m.IsAdmin)
-                                <input name="isActive" type="hidden" value="false" />
-                            </div>
-                        </div>
-                        @* ------ End admin row*@
-                        @
-                        <div class="form-group">
-                            <label asp-for="ICUBeds" class="col-sm-2 col-sm-2 control-label"></label>
-                            <div class="col-sm-10">
-                                <input asp-for="ICUBeds" class="form-control" />
-                                <span asp-validation-for="ICUBeds" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="ICUVents" class="col-sm-2 col-sm-2 control-label"></label>
-                            <div class="col-sm-10">
-                                <input asp-for="ICUVents" class="form-control" />
-                                <span asp-validation-for="ICUVents" class="text-danger"></span>
+                                <input id="chkPassport" type="checkbox" name="IsAdmin"  />
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                                <input type="submit" value="اضافة" class="btn btn-primary" />
+                        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                        <script type="text/javascript">
+                            $(function () {
+                                $("#chkPassport").click(function () {
+                                    if ($(this).is(":checked")) {
+                                        $("#showformDiv").show();
+                                    } else {
+                                        $("#showformDiv").hide();
+                                    }
+                                });
+                            });
+                        </script>
+
+                        <div id="showformDiv" style="display: none">
+
+                            <div class="form-group">
+                                <label asp-for="ICUBeds" class="col-sm-2 col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ICUBeds" class="form-control" />
+                                    <span asp-validation-for="ICUBeds" class="text-danger"></span>
+                                </div>
                             </div>
+                            <div class="form-group">
+                                <label asp-for="ICUVents" class="col-sm-2 col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input asp-for="ICUVents" class="form-control" />
+                                    <span asp-validation-for="ICUVents" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <input type="submit" value="اضافة" class="btn btn-primary" />
+                                </div>
+                            </div>
+
                         </div>
+                        
                     </form>
+                    
 
-                    @section Scripts {
+                             @section Scripts {
                         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
                     }
 
@@ -72,6 +88,8 @@
         </div>
     </div>
 
-    </section>
+</section>
+
+
 
 

@@ -20,7 +20,7 @@ namespace Covid19.Models
         [DisplayName("اسم الجهة")]
         public string HName { get; set; }
         [DisplayName("مستشفى")]
-        public bool IsAdmin { get; set; } //true = Hospital False = Moderea
+        public bool IsAdmin { get ; set; } //true = Hospital False = Moderea
 
         [DisplayName("عدد الأسرة")]
         public int ICUBeds { get; set; }
@@ -28,7 +28,7 @@ namespace Covid19.Models
         [DisplayName("عدد أجهزة التنفس")]
         public int ICUVents { get; set; }
 
-       
+ 
 
     }
 }
