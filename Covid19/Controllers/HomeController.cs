@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Covid19.Controllers
 {
+    [Authorize(Roles = "administrator,admin,hospital")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

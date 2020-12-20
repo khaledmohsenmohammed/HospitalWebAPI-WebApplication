@@ -72,7 +72,8 @@
 
                 <!--sidebar nav start-->
                 <ul class="nav nav-pills nav-stacked custom-nav">
-                  
+                    @if (User.IsInRole("admin") || User.IsInRole("administrator") || User.IsInRole("hospital"))
+                    {
                         <li class="menu-list @Html.IsMainActive("Patients")">
                             <a href="index.html"><i class="fa fa-home"></i> <span>العناية المركزة</span></a>
                             <ul class="sub-menu-list">
@@ -81,60 +82,61 @@
                                 <li class="@Html.IsActive("Patients", "Index")"><a asp-controller="Patients" asp-action="Index">كل الحالات</a></li>
                             </ul>
                         </li>
-                  
-                    <li class="menu-list @Html.IsMainActive("Reports")">
-                        <a href=""><i class="fa fa-laptop"></i> <span>التقارير</span></a>
-                        <ul class="sub-menu-list">
-                            <li class="@Html.IsActive("Reports", "Index")"><a href="blank_page.html">تقرير اجمالى الحالات</a></li>
-                            <li class="@Html.IsActive("Reports", "Index")"><a href="boxed_view.html">تقرير حالات الوفيات</a></li>
-                            <li class="@Html.IsActive("Reports", "Index")"><a href="leftmenu_collapsed_view.html">تقرير الاسرة</a></li>
 
-
-                        </ul>
-                    </li>
-                    @if (User.IsInRole("admin") || User.IsInRole("administrator"))
-                    {
-                        <li class="menu-list @Html.IsMainActive("Hospitals")">
-                            <a href=""><i class="fa fa-cogs"></i> <span>اعدادات المستشفيات</span></a>
+                        <li class="menu-list @Html.IsMainActive("Reports")">
+                            <a href=""><i class="fa fa-laptop"></i> <span>التقارير</span></a>
                             <ul class="sub-menu-list">
-                                <li class="@Html.IsActive("Hospitals", "Create")"><a asp-controller="Hospitals" asp-action="Create">اضافة جديد</a></li>
-                                <li class="@Html.IsActive("Hospitals", "Index")"><a asp-controller="Hospitals" asp-action="Index">المستشفيات</a></li>
-                            </ul>
-                        </li>
-                    }
-                    @if (User.IsInRole("administrator"))
-                    {
-                        <li class="menu-list @Html.IsMainActive("Identity") @Html.IsMainActive("ApplicationUsers")">
-                            <a href=""><i class="fa fa-users"></i> <span>المستخدمين</span></a>
-                            <ul class="sub-menu-list">
-                                <li class="@Html.IsActive("Identity", "/Account/Register")"><a asp-area="Identity" asp-page="/Account/Register"> اضافة مستخدم</a></li>
-                                <li class="@Html.IsActive("ApplicationUsers", "Index")"><a asp-controller="ApplicationUsers" asp-action="Index">ادارة المستخدمين</a></li>
-
-
-                            </ul>
-                        </li>
-                        <li class="menu-list @Html.IsMainActive("RoleAdmin") @Html.IsMainActive("ApplicationUsers")">
-                            <a href=""><i class="fa fa-user"></i> <span>الصلاحيات</span></a>
-                            <ul class="sub-menu-list">
-                                <li class="@Html.IsActive("RoleAdmin", "Create")"><a asp-controller="RoleAdmin" asp-action="Create"> اضافة صلاحية</a></li>
-                                <li class="@Html.IsActive("RoleAdmin", "Index")"><a asp-controller="RoleAdmin" asp-action="Index">ادارة الصلاحيات</a></li>
+                                <li class="@Html.IsActive("Reports", "Index")"><a href="blank_page.html">تقرير اجمالى الحالات</a></li>
+                                <li class="@Html.IsActive("Reports", "Index")"><a href="boxed_view.html">تقرير حالات الوفيات</a></li>
+                                <li class="@Html.IsActive("Reports", "Index")"><a href="leftmenu_collapsed_view.html">تقرير الاسرة</a></li>
 
 
                             </ul>
                         </li>
                     }
-                    @if (User.IsInRole("administrator"))
-                    {
-                        <li class="menu-list @Html.IsMainActive("UserRoles") @Html.IsMainActive("ApplicationUsers")">
-                            <a href=""><i class="fa fa-user"></i> <span>صلاحيات المستخدمين</span></a>
-                            <ul class="sub-menu-list">
-                                <li class="@Html.IsActive("UserRoles", "Create")"><a asp-controller="UserRoles" asp-action="Create"> اضافة صلاحية للمستخدم</a></li>
-                                <li class="@Html.IsActive("UserRoles", "Index")"><a asp-controller="UserRoles" asp-action="Index">ادارة صلاحيات المستخدمين</a></li>
+                        @if (User.IsInRole("admin") || User.IsInRole("administrator"))
+                        {
+                            <li class="menu-list @Html.IsMainActive("Hospitals")">
+                                <a href=""><i class="fa fa-cogs"></i> <span>اعدادات المستشفيات</span></a>
+                                <ul class="sub-menu-list">
+                                    <li class="@Html.IsActive("Hospitals", "Create")"><a asp-controller="Hospitals" asp-action="Create">اضافة جديد</a></li>
+                                    <li class="@Html.IsActive("Hospitals", "Index")"><a asp-controller="Hospitals" asp-action="Index">المستشفيات</a></li>
+                                </ul>
+                            </li>
+                        }
+                        @if (User.IsInRole("administrator"))
+                        {
+                            <li class="menu-list @Html.IsMainActive("Identity") @Html.IsMainActive("ApplicationUsers")">
+                                <a href=""><i class="fa fa-users"></i> <span>المستخدمين</span></a>
+                                <ul class="sub-menu-list">
+                                    <li class="@Html.IsActive("Identity", "/Account/Register")"><a asp-area="Identity" asp-page="/Account/Register"> اضافة مستخدم</a></li>
+                                    <li class="@Html.IsActive("ApplicationUsers", "Index")"><a asp-controller="ApplicationUsers" asp-action="Index">ادارة المستخدمين</a></li>
 
 
-                            </ul>
-                        </li>
-                    }
+                                </ul>
+                            </li>
+                            <li class="menu-list @Html.IsMainActive("RoleAdmin") @Html.IsMainActive("ApplicationUsers")">
+                                <a href=""><i class="fa fa-user"></i> <span>الصلاحيات</span></a>
+                                <ul class="sub-menu-list">
+                                    <li class="@Html.IsActive("RoleAdmin", "Create")"><a asp-controller="RoleAdmin" asp-action="Create"> اضافة صلاحية</a></li>
+                                    <li class="@Html.IsActive("RoleAdmin", "Index")"><a asp-controller="RoleAdmin" asp-action="Index">ادارة الصلاحيات</a></li>
+
+
+                                </ul>
+                            </li>
+                        }
+                        @if (User.IsInRole("administrator"))
+                        {
+                            <li class="menu-list @Html.IsMainActive("UserRoles") @Html.IsMainActive("ApplicationUsers")">
+                                <a href=""><i class="fa fa-user"></i> <span>صلاحيات المستخدمين</span></a>
+                                <ul class="sub-menu-list">
+                                    <li class="@Html.IsActive("UserRoles", "Create")"><a asp-controller="UserRoles" asp-action="Create"> اضافة صلاحية للمستخدم</a></li>
+                                    <li class="@Html.IsActive("UserRoles", "Index")"><a asp-controller="UserRoles" asp-action="Index">ادارة صلاحيات المستخدمين</a></li>
+
+
+                                </ul>
+                            </li>
+                        }
                     </ul>
                 <!--sidebar nav end-->
 

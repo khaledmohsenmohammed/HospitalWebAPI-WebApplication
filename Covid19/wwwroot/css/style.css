@@ -3612,7 +3612,7 @@ ul.p-info li:last-child {
 }
 
 ul.p-info .title, ul.p-info .desk {
-    float: left;
+    float: right;
 }
 
 ul.p-info .title {
