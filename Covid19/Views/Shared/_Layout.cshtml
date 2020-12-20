@@ -72,8 +72,7 @@
 
                 <!--sidebar nav start-->
                 <ul class="nav nav-pills nav-stacked custom-nav">
-                    @if (User.IsInRole("hospital") || User.IsInRole("administrator"))
-                    {
+                  
                         <li class="menu-list @Html.IsMainActive("Patients")">
                             <a href="index.html"><i class="fa fa-home"></i> <span>العناية المركزة</span></a>
                             <ul class="sub-menu-list">
@@ -82,8 +81,7 @@
                                 <li class="@Html.IsActive("Patients", "Index")"><a asp-controller="Patients" asp-action="Index">كل الحالات</a></li>
                             </ul>
                         </li>
-                    }
-
+                  
                     <li class="menu-list @Html.IsMainActive("Reports")">
                         <a href=""><i class="fa fa-laptop"></i> <span>التقارير</span></a>
                         <ul class="sub-menu-list">
@@ -101,7 +99,6 @@
                             <ul class="sub-menu-list">
                                 <li class="@Html.IsActive("Hospitals", "Create")"><a asp-controller="Hospitals" asp-action="Create">اضافة جديد</a></li>
                                 <li class="@Html.IsActive("Hospitals", "Index")"><a asp-controller="Hospitals" asp-action="Index">المستشفيات</a></li>
-
                             </ul>
                         </li>
                     }

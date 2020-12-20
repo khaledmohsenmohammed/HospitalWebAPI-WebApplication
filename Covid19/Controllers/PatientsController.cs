@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Covid19.Data;
 using Covid19.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Covid19.Controllers
 {
+   
     public class PatientsController : Controller
     {
         private readonly ApplicationDbContext _context;
