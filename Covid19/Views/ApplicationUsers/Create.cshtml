@@ -3,54 +3,79 @@
 @{
     ViewData["Title"] = "اضافة";
 }
+<div class="page-heading">
+    <h3>
+        اضافة مستخدم
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a asp-controller="ApplicationUsers" asp-action="Index">المستخدمين</a>
+        </li>
+        <li class="active">اضافة</li>
+    </ul>
+</div>
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    اضافة جديد
+                </header>
+                <div class="panel-body">
 
-<h2>Create</h2>
+                    <form class="form-horizontal adminex-form" asp-action="Create">
+                        <div class="form-group">
+                            <label asp-for="HospitalId" class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <select asp-for="HospitalId" class="form-control" asp-items="ViewBag.HospitalId"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserName" class="col-sm-2 col-sm-2 control-label">اسم المستخدم </label>
+                            <div class="col-sm-10">
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <input asp-for="PhoneNumber" class="form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PasswordHash" class="col-sm-2 col-sm-2 control-label">كلمة المرور </label>
 
-<h4>ApplicationUser</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label">اسم المستخدم </label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
+                            <div class="col-sm-10">
+                                <input type="password" asp-for="PasswordHash" class="form-control" />
+                                <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                            </div>
+                        </div>
 
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <input type="submit" value="اضافة" class="btn btn-success btn-lg btn-block" />
+                            </div>
+                        </div>
+                    </form>
 
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
 
-            <div class="form-group">
-                <label asp-for="PasswordHash" class="control-label">كلمة المرور </label>
-                <input type="password" asp-for="PasswordHash" class="form-control" />
-                <span asp-validation-for="PasswordHash" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HospitalId" class="control-label">اختر المستشفى</label>
-                <input type="password" asp-for="PasswordHash" class="form-control" />
-                <span asp-validation-for="PasswordHash" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-
-        </form>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
+
 
 
 @section Scripts {

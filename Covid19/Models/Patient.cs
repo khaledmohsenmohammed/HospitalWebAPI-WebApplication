@@ -47,6 +47,9 @@ namespace Covid19.Models
         [Required]
         [DisplayName("تاريخ الدخول")]
         public DateTime EnterDate { get; set; }
+        
+        [DisplayName("جهاز تنفس")]
+        public bool Onvent { get; set; }
         [DisplayName("التقرير الطبي")]
         public string Report { get; set; }
         [DisplayName("الحالة")]

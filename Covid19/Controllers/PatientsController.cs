@@ -77,6 +77,60 @@ namespace Covid19.Controllers
             return View(patients);
         }
 
+        // GET: New Patients 
+        public async Task<IActionResult> NewPatients()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            applicationUser = await _context.applicationUsers
+              .SingleOrDefaultAsync(m => m.Id == userId);
+            var hospital = await _context.hospitals
+               .FirstOrDefaultAsync(m => m.Id == applicationUser.HospitalId);
+            if (hospital != null)
+            {
+                ViewData["HospitalName"] = hospital.HName;
+            }
+
+            var applicationDbContext = _context.patients.Include(p => p.hospital).Where(x => x.StatusID == 0);
+            List<Patient> patients = await applicationDbContext.ToListAsync();
+            foreach (Patient item in patients)
+            {
+                switch (item.StatusID)
+                {
+                    case 0:
+                        item.StatusName = "جديد";
+                        item.Statusclass = "label label-success label-mini";
+                        break;
+                    case 1:
+                        item.StatusName = "تحسن";
+                        item.Statusclass = "label label-warning label-mini";
+                        break;
+                    case 2:
+                        item.StatusName = "شفاء";
+                        item.Statusclass = "label label-info label-mini";
+                        break;
+                    case 3:
+                        item.StatusName = "وفاه";
+                        item.Statusclass = "label label-danger label-mini";
+                        break;
+                    case 4:
+                        item.StatusName = "تحويل";
+                        item.Statusclass = "label label-default label-mini";
+                        break;
+                    default:
+                        // code block
+                        break;
+                }
+                if (item.StatusID == 0)
+                {
+                    item.ExitDate0 = "";
+                }
+                else
+                {
+                    item.ExitDate0 = item.ExitDate.ToString();
+                }
+            }
+            return View(patients);
+        }
         // GET: Patients/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -132,7 +186,7 @@ namespace Covid19.Controllers
 
         // GET: Patients/Create
         public ApplicationUser applicationUser { get; set; }
-       
+        [Authorize(Roles = "hospital")]
         public async Task<IActionResult> Create()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -147,7 +201,7 @@ namespace Covid19.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HospitalId,PName,NationalId,Age,Job,Address,TicketNumber,EnterDate,Report,StatusID,ExitDate")] Patient patient)
+        public async Task<IActionResult> Create([Bind("Id,HospitalId,PName,NationalId,Age,Job,Address,TicketNumber,EnterDate,Onvent,Report,StatusID,ExitDate")] Patient patient)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             applicationUser = await _context.applicationUsers
@@ -200,7 +254,7 @@ namespace Covid19.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("Id,HospitalId,PName,NationalId,Age,Job,Address,TicketNumber,EnterDate,Report,StatusID,ExitDate")] Patient patient)
+        public async Task<IActionResult> Edit(int? id, [Bind("Id,HospitalId,PName,NationalId,Age,Job,Address,TicketNumber,EnterDate,Onvent,Report,StatusID,ExitDate")] Patient patient)
         {
             if (id != patient.Id)
             {

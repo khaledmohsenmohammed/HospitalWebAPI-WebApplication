@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Covid19/appsettings.json
+Covid19/appsettings.json

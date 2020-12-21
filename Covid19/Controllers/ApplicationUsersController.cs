@@ -3,6 +3,7 @@ using Covid19.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Covid19.Controllers
 {
-    //[Authorize(Roles = "administrator")]
+    [Authorize(Roles = "administrator")]
     public class ApplicationUsersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -55,15 +56,17 @@ namespace Covid19.Controllers
         }
 
         // GET: ApplicationUsers/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewData["HospitalId"] = new SelectList(_context.hospitals, "Id", "HName");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DateofBirth,Url,Id,UserName,Email,Passwor")] ApplicationUser applicationUser)
+        public async Task<IActionResult> Create([Bind("DateofBirth,Url,Id,UserName,Email,Passwor,HospitalId")] ApplicationUser applicationUser)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(applicationUser);
