@@ -1,4 +1,24 @@
 
+
+    $(document).ready(function () {
+        $('#StatusID').change(function () {
+            var ddlValue = $(this).val();
+
+            if (ddlValue == "0") {
+
+                $('#showformDiv').hide();
+            }
+            else {
+
+                $('#showformDiv').show();
+
+            }
+        });
+                                });
+
+
+                      
+
 (function() {
     "use strict";
 

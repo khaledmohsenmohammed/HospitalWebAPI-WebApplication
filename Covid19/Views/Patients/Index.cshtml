@@ -4,93 +4,112 @@
     ViewData["Title"] = "Index";
    
 }
+<div class="page-heading">
+    <h3>
+      العناية المركزة
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a asp-controller="Patients" asp-action="Index">كل الحالات</a>
+        </li>
 
-<h1>Index</h1>
+    </ul>
+</div>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    @ViewData["HospitalName"]
+                    <span class="tools pull-right">
+                        <a href="javascript:;" class="fa fa-chevron-down"></a>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.hospital)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NationalId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Job)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TicketNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EnterDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Report)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatusID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExitDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.hospital.HName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NationalId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Job)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TicketNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EnterDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Report)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatusID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExitDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    </span>
+                </header>
+                <div class="panel-body">
+                    <div class="adv-table">
+
+                        <table class="display table table-bordered table-striped" id="dynamic-table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NationalId)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Age)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Job)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Address)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TicketNumber)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.EnterDate)
+                                    </th>
+                                   
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.StatusID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ExitDate)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                       
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NationalId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Age)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Job)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Address)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TicketNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EnterDate)
+                                        </td>
+                                        
+                                        <td>
+                                            <span class="@Html.DisplayFor(modelItem => item.Statusclass)"> @Html.DisplayFor(modelItem => item.StatusName)</span> 
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ExitDate0)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success  btn-sm">تعديل</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info  btn-sm">عرض</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger  btn-sm">حذف</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
