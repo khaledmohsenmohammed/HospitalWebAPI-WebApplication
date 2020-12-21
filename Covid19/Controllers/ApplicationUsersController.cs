@@ -12,20 +12,85 @@ using System.Threading.Tasks;
 
 namespace Covid19.Controllers
 {
-    [Authorize(Roles = "administrator")]
+    //[Authorize(Roles = "administrator")]
     public class ApplicationUsersController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        public ApplicationUsersController(UserManager<ApplicationUser> userManager)
+        private readonly ApplicationDbContext _context;
+
+        public ApplicationUsersController(ApplicationDbContext context)
         {
-            _userManager = userManager;
+            _context = context;
         }
-        [HttpGet]
-        public IActionResult Index()
+
+
+        // GET: ApplicationUsers
+        public async Task<IActionResult> Index()
         {
-            var users = _userManager.Users;
-            return View(users);
+            return View(await _context.applicationUsers.ToListAsync());
         }
+
+
+        // GET: ApplicationUsers/Details/5
+        public async Task<IActionResult> Details(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var applicationUser = await _context.applicationUsers
+                .SingleOrDefaultAsync(m => m.Id == id);
+            if (applicationUser == null)
+            {
+                return NotFound();
+            }
+
+            return View(applicationUser);
+        }
+
+        // GET: Hospitals
+        public async Task<IActionResult> hospital  ()
+        {
+            return View(await _context.hospitals.ToListAsync());
+        }
+
+        // GET: ApplicationUsers/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("DateofBirth,Url,Id,UserName,Email,Passwor")] ApplicationUser applicationUser)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(applicationUser);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(applicationUser);
+        }
+
+
+
+
+
+
+        //private readonly UserManager<ApplicationUser> _userManager;
+        //public ApplicationUsersController(UserManager<ApplicationUser> userManager)
+        //{
+        //    _userManager = userManager;
+        //}
+
+
+        //[HttpGet]
+        //public IActionResult Index()
+        //{
+        //    var users = _userManager.Users;
+        //    return View(users);
+        //}
 
     }
 }
